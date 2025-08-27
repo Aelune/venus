@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "Venus",
+  "version": "2.0.1",
+  "description": "Replace new tab with a custom tab",
+  "action": {
+    "default_icon": {
+      "48": "images/icon.png"
+    },
+    "default_title": "Venus Page",
+    "default_popup": "main.html"
+  },
+  "chrome_url_overrides": {
+    "newtab": "main.html"
+  },
+  "permissions": [
+    "contextMenus"
+  ],
+  "background": {
+    "service_worker": "scripts/background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "styles/styles.css",
+        "scripts/script.js",
+        "scripts/editor.js",
+        "images/space.jpg",
+        "images/space.webp",
+        "settings/help.html"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "icons": {
+    "48": "images/icon.png"
+  }
+}
+
