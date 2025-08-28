@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Venus",
-  "version": "2.0.1",
+  "version": "0.1.1",
   "description": "Replace new tab with a custom tab",
   "browser_action": {
     "default_icon": {
@@ -32,7 +32,7 @@
   },
   "applications": {
     "gecko": {
-      "id": "{63c73c09-8c3c-49af-807c-4997d495343a}"
+      "id": "{529c968c-bb7f-404b-aa12-34eb5659845d}"
     }
   }
 }
