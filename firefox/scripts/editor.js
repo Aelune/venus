@@ -17,9 +17,20 @@ document.addEventListener('DOMContentLoaded', () => {
     isEditing = !isEditing;
     document.body.classList.toggle('editing-mode', isEditing);
 
-    editBtn.innerHTML = isEditing
-      ? '<i class="fas fa-check"></i> Done'
-      : '<i class="fas fa-edit"></i> Edit';
+    // Clear existing content
+    editBtn.textContent = '';
+
+    // Create icon
+    const icon = document.createElement('i');
+    icon.className = isEditing ? 'fas fa-check' : 'fas fa-edit';
+
+    // Create label text
+    const label = document.createTextNode(isEditing ? ' Done' : ' Edit');
+
+    // Append to button
+    editBtn.appendChild(icon);
+    editBtn.appendChild(label);
+
   });
 
   allLinks.forEach(linkCard => {

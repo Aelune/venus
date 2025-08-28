@@ -4,16 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> Home Page</title>
-    <link rel="icon" type="images/icon.png" href="favicon.png">
-      <link rel="icon" href="images/house-solid.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<!-- <link rel="icon" type="image/svg+xml" href="images/house.svg"> -->
+
 
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <script src="script.js"></script>
-    <script src="editor.js"></script>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/editor.js"></script>
 
   <!-- Animated stars background -->
   <div class="particles" id="particles"></div>
@@ -40,74 +41,6 @@
         <div class="clock" id="clock">00:00:00</div>
         <div class="date" id="date">Monday, January 1</div>
       </section>
-
-      <!-- Search -->
-      <!-- <section class="search-container">
-        <form action="https://www.google.com/search" method="get">
-          <input type="text" name="q" class="search-box" placeholder="Search the cosmos..." autofocus>
-          <div class="search-icon">
-            <i class="fas fa-search"></i>
-          </div>
-        </form>
-      </section> -->
-
-      <!-- Weather Widget -->
-      <!-- <section class="weather-widget">
-        <div class="weather-icon">
-          <i class="fas fa-moon"></i>
-        </div>
-        <div class="weather-info">
-          <div class="weather-location">Hyd, India</div>
-          <div class="weather-temp">28°C</div>
-          <div class="weather-desc">Clear night</div>
-          <div class="weather-details">
-            <div class="weather-detail">
-              <i class="fas fa-wind"></i>
-              <span>10 km/h</span>
-            </div>
-             <div class="weather-detail">
-              <i class="fas fa-tint"></i>
-              <span>20%</span>
-            </div>
-          </div>
-        </div>
-      </section> -->
-<!-- Script for weather api -->
-      <!-- <script>
-        async function getWeather() {
-          const apiKey = 'YOUR_API_KEY'; // <-- Replace with your actual API key
-          const city = 'Hyderabad';
-          const country = 'IN';
-          const url = `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=metric&appid=${apiKey}`;
-
-          try {
-            const response = await fetch(url);
-            const data = await response.json();
-
-            const location = `${data.name}, ${data.sys.country}`;
-            const temp = `${Math.round(data.main.temp)}°C`;
-            const desc = data.weather[0].description;
-            const wind = `${data.wind.speed} km/h`;
-            const humidity = `${data.main.humidity}%`;
-
-            document.querySelector('.weather-location').textContent = location;
-            document.querySelector('.weather-temp').textContent = temp;
-            document.querySelector('.weather-desc').textContent = desc;
-
-            // Optional: Uncomment if you re-enable wind & humidity
-            // document.querySelector('.weather-details').innerHTML = `
-            //   <div class="weather-detail"><i class="fas fa-wind"></i><span>${wind}</span></div>
-            //   <div class="weather-detail"><i class="fas fa-tint"></i><span>${humidity}</span></div>
-            // `;
-
-          } catch (error) {
-            console.error('Error fetching weather:', error);
-          }
-        }
-
-        getWeather();
-        </script> -->
-
 
       <!-- Tabs Navigation -->
       <section class="tabs-container">
