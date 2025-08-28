@@ -19,24 +19,40 @@ document.addEventListener('DOMContentLoaded', function () {
   updateClock();
 
   // TABS FUNCTIONALITY
-  const tabButtons = document.querySelectorAll('.tab-btn');
-  const tabContents = document.querySelectorAll('.tab-content');
-  const tabIndicator = document.querySelector('.tab-indicator');
+const tabIndicator = document.querySelector('.tab-indicator');
+const tabButtons = document.querySelectorAll('.tab-btn');
+const tabsNav = document.querySelector('.tabs-nav');
 
-  tabButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelector('.tab-btn.active')?.classList.remove('active');
-      btn.classList.add('active');
+tabButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Remove active class from all buttons
+    document.querySelector('.tab-btn.active')?.classList.remove('active');
+    btn.classList.add('active');
 
-      tabContents.forEach(content => content.classList.remove('active'));
-      document.getElementById(btn.dataset.tab).classList.add('active');
+    // Hide all tab contents, show selected one
+    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+    document.getElementById(btn.dataset.tab).classList.add('active');
 
-      if (tabIndicator) {
-        tabIndicator.style.width = `${btn.offsetWidth}px`;
-        tabIndicator.style.left = `${btn.offsetLeft}px`;
-      }
-    });
+    if (tabIndicator) {
+      // Calculate left relative to .tabs-nav container
+      const left = btn.offsetLeft;
+      const width = btn.offsetWidth;
+
+      tabIndicator.style.left = `${left}px`;
+      tabIndicator.style.width = `${width}px`;
+    }
   });
+});
+
+// Also, initialize indicator on page load on active button:
+window.addEventListener('DOMContentLoaded', () => {
+  const activeBtn = document.querySelector('.tab-btn.active');
+  if (activeBtn && tabIndicator) {
+    tabIndicator.style.left = `${activeBtn.offsetLeft}px`;
+    tabIndicator.style.width = `${activeBtn.offsetWidth}px`;
+  }
+});
+
 
   // HELP BUTTON
   const helpBtn = document.getElementById('help-button');

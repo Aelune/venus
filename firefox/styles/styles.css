@@ -338,8 +338,9 @@ body.editing-mode .link-card {
   height: 3px;
   background: linear-gradient(to right, var(--primary), var(--secondary));
   border-radius: 1px;
-  transition: all 0.3s ease;
+  transition: left 0.3s ease, width 0.3s ease; /* animate smoothly */
 }
+
 
 /* Links Container */
 .links-container {
