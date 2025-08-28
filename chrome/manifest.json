@@ -1,0 +1,47 @@
+{
+  // "manifest_version" is updated from 2 to 3, which is required for all new Chrome extensions.
+  "manifest_version": 3,
+  "name": "Venus",
+  "version": "0.1.1",
+  "description": "Replace new tab with a custom tab",
+
+  // "action" replaces the "browser_action" from Manifest V2.
+  // The functionality remains the same: it defines the extension's icon and popup.
+  "action": {
+    "default_icon": {
+      "48": "images/icon.png"
+    },
+    "default_title": "Venus Page",
+    "default_popup": "main.html"
+  },
+
+  // "chrome_url_overrides" is compatible with Chrome and is the core feature
+  // that replaces the new tab page with your main.html.
+  "chrome_url_overrides": {
+    "newtab": "main.html"
+  },
+
+  // The "background" section has been removed. The original script was for opening
+  // a tab on startup, which is not compatible with Manifest V3's service workers
+  // and is redundant since this extension already overrides the new tab page.
+
+  // "web_accessible_resources" is updated to the Manifest V3 format.
+  // This securely allows your extension's pages to load local resources like scripts and styles.
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "styles/styles.css",
+        "scripts/script.js",
+        "scripts/editor.js",
+        "images/*",
+        "settings/help.html"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "icons": {
+    "48": "images/icon.png"
+  }
+  // The Firefox-specific "applications" key has been removed as it's not used by Chrome.
+  // The "permissions" key for "contextMenus" was also removed as it was not being used.
+}

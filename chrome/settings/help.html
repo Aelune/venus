@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Extension Help</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome CDN for Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <style>
+   :root {
+  --primary: #4a5568; /* dark gray */
+  --secondary: #718096; /* medium gray */
+  --accent: #3182ce; /* calm blue accent */
+  --glass: rgba(255, 255, 255, 0.9);
+  --glass-hover: rgba(255, 255, 255, 0.95);
+  --border-glass: rgba(200, 200, 200, 0.4);
+  --text-main: #2d3748; /* dark slate */
+  --text-secondary: #4a5568; /* medium dark */
+  --shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+/* Reset and base */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: #f7fafc; /* very light gray */
+  color: var(--text-main);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+header {
+  width: 100%;
+  max-width: 900px;
+  background: #edf2f7; /* light gray background */
+  padding: 48px 20px 28px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 40px;
+  user-select: none;
+}
+.greeting {
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: 0.03em;
+  line-height: 1.1;
+}
+.greeting span {
+  display: block;
+  font-weight: 400;
+  font-size: 1.1rem;
+  margin-top: 8px;
+  color: var(--text-secondary);
+}
+
+main {
+  width: 100%;
+  max-width: 900px;
+  background: var(--glass);
+  backdrop-filter: saturate(180%) blur(12px);
+  border-radius: 20px;
+  padding: 48px 40px;
+  border: 1.5px solid var(--border-glass);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+main:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+}
+
+h2, h3 {
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--text-main);
+}
+h2 {
+  font-size: 2.2rem;
+}
+h3 {
+  font-size: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+ul, ol {
+  padding-left: 1.6rem;
+  margin-bottom: 24px;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+ul li, ol li {
+  margin-bottom: 14px;
+}
+
+p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: var(--text-secondary);
+}
+
+code {
+  background: #e2e8f0; /* light gray-blue */
+  padding: 3px 6px;
+  border-radius: 5px;
+  font-family: monospace;
+  font-size: 0.95rem;
+  color: var(--accent);
+}
+
+strong {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.tip {
+  margin-top: 36px;
+  padding: 24px 28px;
+  background: var(--glass-hover);
+  border-left: 6px solid var(--accent);
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(49, 130, 206, 0.15);
+  color: var(--text-main);
+}
+.tip h3 {
+  margin-top: 0;
+  font-size: 1.25rem;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+footer.footer {
+  margin-top: 48px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  text-align: center;
+  font-family: var(--font-sans);
+  color: var(--text-main);
+  user-select: none;
+}
+footer.footer p {
+  margin: 12px 0 6px;
+  font-size: 1rem;
+}
+footer.footer a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+footer.footer a:hover {
+  color: var(--secondary);
+}
+
+.footer-icons {
+  margin-top: 12px;
+}
+.footer-icons a {
+  margin: 0 10px;
+  font-size: 26px;
+  color: #718096;
+  transition: color 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+.footer-icons a:hover {
+  color: var(--accent);
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  header {
+    padding: 36px 16px 24px;
+    border-radius: 12px;
+  }
+  .greeting {
+    font-size: 2rem;
+  }
+  .greeting span {
+    font-size: 0.95rem;
+  }
+  main {
+    padding: 32px 24px;
+    border-radius: 16px;
+  }
+  h2 {
+    font-size: 1.8rem;
+  }
+  h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="greeting">
+      Extension <span>Help & Documentation</span>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>How to Use the Extension</h2>
+      <ul>
+        <li>Click <strong>Edit</strong> to customize links on your new tab page.</li>
+        <li>Edit link name, URL, and icon by clicking on any link card.</li>
+        <li>Your changes are automatically saved in the browser.</li>
+      </ul>
+
+      <h3>Troubleshooting</h3>
+      <p>
+        If something doesn’t work, try reloading the extension from <code>about:addons</code> and clicking <strong>“Reload”</strong>.
+      </p>
+      <p>
+        You can mail your problem <code> With a short summary and picture(Screenshot) of error</code> at <strong>"Ailune@proton.me"</strong>.
+      </p>
+
+      <div class="tip">
+        <h3>How to Set This Extension as Firefox Homepage</h3>
+        <p>Firefox does not allow extensions to directly modify your homepage settings. But you can set the extension as your homepage manually by following these steps:</p>
+        <ol>
+          <li>Install or load the extension using <code>about:debugging</code> or via the Add-ons menu.</li>
+          <li>Open a new tab — your custom extension should appear.</li>
+          <li>Right-click anywhere on the extension and choose <strong>“Copy Page URL”</strong>, or copy it from the address bar.</li>
+          <li>The URL will look like this: <code>moz-extension://abc123-4567-defg/main.html</code></li>
+          <li>Go to <strong>Firefox Settings &gt; Home</strong>.</li>
+          <li>Under <strong>“Homepage and new windows”</strong>, select <strong>Custom URLs</strong>.</li>
+          <li>Paste the copied URL into the box.</li>
+        </ol>
+        <p><strong>Done!</strong> Now every time you open Firefox, it will show your custom extension as the homepage.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <p><strong>Contact:</strong> <a href="mailto:Ailune@proton.me">Ailune@proton.me</a></p>
+    <div class="footer-icons" aria-label="Social media links">
+      <a href="https://github.com/Aelune" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/aelune/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://www.instagram.com/thewoodhere" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.youtube.com/channel/blunebear" target="_blank" rel="noopener" title="YouTube" aria-label="YouTube">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </div>
+    <p style="margin-top: 20px;">&copy; 2025 Dawood. All rights reserved.</p>
+  </footer>
+</body>
+</html>
