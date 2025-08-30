@@ -14,11 +14,12 @@
     "newtab": "main.html"
   },
   "permissions": [
-    "contextMenus"
+    "contextMenus",
+    "storage"
   ],
   "background": {
     "scripts": ["scripts/background.js"],
-    "persistent": false
+  "persistent": false
   },
   "web_accessible_resources": [
     "styles/styles.css",
