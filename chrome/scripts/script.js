@@ -1,11 +1,20 @@
-document.addEventListener('DOMContentLoaded', function () {
-  // CLOCK + DATE
+document.addEventListener('DOMContentLoaded', () => {
+  const DEBUG = false; // set true for debugging
+
+  function log(...args) {
+    if (DEBUG) console.log("[HomeExt]", ...args);
+  }
+
+  // ---------------- CLOCK + DATE ----------------
   function updateClock() {
     const now = new Date();
     const clock = document.getElementById('clock');
     const date = document.getElementById('date');
-    if (clock && date) {
+
+    if (clock) {
       clock.textContent = now.toLocaleTimeString('en-US', { hour12: false });
+    }
+    if (date) {
       date.textContent = now.toLocaleDateString('en-US', {
         weekday: 'long',
         year: 'numeric',
@@ -13,59 +22,60 @@ document.addEventListener('DOMContentLoaded', function () {
         day: 'numeric'
       });
     }
-  }
 
-  setInterval(updateClock, 1000);
+    requestAnimationFrame(updateClock); // smoother than setInterval
+  }
   updateClock();
 
-  // TABS FUNCTIONALITY
+  // ---------------- TABS FUNCTIONALITY ----------------
   const tabIndicator = document.querySelector('.tab-indicator');
   const tabButtons = document.querySelectorAll('.tab-btn');
-  const tabsNav = document.querySelector('.tabs-nav');
 
-  tabButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // Remove active class from all buttons
-      document.querySelector('.tab-btn.active')?.classList.remove('active');
-      btn.classList.add('active');
+  if (tabButtons.length) {
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class from all buttons
+        document.querySelector('.tab-btn.active')?.classList.remove('active');
+        btn.classList.add('active');
 
-      // Hide all tab contents, show selected one
-      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-      document.getElementById(btn.dataset.tab).classList.add('active');
+        // Hide all tab contents, show selected one
+        document.querySelectorAll('.tab-content')
+          .forEach(content => content.classList.remove('active'));
+        const target = document.getElementById(btn.dataset.tab);
+        if (target) target.classList.add('active');
 
-      if (tabIndicator) {
-        // Calculate left relative to .tabs-nav container
-        const left = btn.offsetLeft;
-        const width = btn.offsetWidth;
-
-        tabIndicator.style.left = `${left}px`;
-        tabIndicator.style.width = `${width}px`;
-      }
+        // Move indicator
+        if (tabIndicator) {
+          tabIndicator.style.left = `${btn.offsetLeft}px`;
+          tabIndicator.style.width = `${btn.offsetWidth}px`;
+        }
+      });
     });
-  });
 
-  // Also, initialize indicator on page load on active button:
-  window.addEventListener('DOMContentLoaded', () => {
+    // Initialize indicator on the active tab
     const activeBtn = document.querySelector('.tab-btn.active');
     if (activeBtn && tabIndicator) {
       tabIndicator.style.left = `${activeBtn.offsetLeft}px`;
       tabIndicator.style.width = `${activeBtn.offsetWidth}px`;
     }
-  });
+  } else {
+    log("No tab buttons found");
+  }
 
-
-  // HELP BUTTON
+  // ---------------- HELP BUTTON ----------------
   const helpBtn = document.getElementById('help-button');
   if (helpBtn) {
-    console.log("Help button detected");
     helpBtn.addEventListener('click', () => {
-      // MODIFICATION: Replaced `browser.runtime.getURL` with the Chrome equivalent `chrome.runtime.getURL`.
-      // This is the standard API for getting a resource URL within a Chrome extension.
-      const helpUrl = chrome.runtime.getURL('settings/help.html');
-      console.log("Opening help page:", helpUrl);
-      window.open(helpUrl, '_blank');
+      try {
+        // Use Chrome runtime API
+        const helpUrl = chrome.runtime.getURL('settings/help.html');
+        window.open(helpUrl, '_blank');
+        log("Opening help page:", helpUrl);
+      } catch (err) {
+        console.error("Failed to open help page:", err);
+      }
     });
   } else {
-    console.log("Help button NOT found!");
+    log("Help button not found");
   }
 });

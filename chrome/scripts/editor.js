@@ -13,32 +13,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let currentCard = null;
 
+  // 🔹 Load saved data on page load
+  chrome.storage.local.get("linksData").then(result => {
+    const savedLinks = result.linksData || {};
+    allLinks.forEach((linkCard, index) => {
+      if (savedLinks[index]) {
+        linkCard.querySelector('.link-name').textContent = savedLinks[index].name;
+        linkCard.href = savedLinks[index].url;
+        linkCard.querySelector('.link-icon i').className = savedLinks[index].icon;
+      }
+    });
+  }).catch(error => {
+    console.error("Failed to load saved links:", error);
+  });
+
   editBtn.addEventListener('click', () => {
     isEditing = !isEditing;
     document.body.classList.toggle('editing-mode', isEditing);
 
-    // Clear existing content
     editBtn.textContent = '';
 
-    // Create icon
     const icon = document.createElement('i');
     icon.className = isEditing ? 'fas fa-check' : 'fas fa-edit';
 
-    // Create label text
     const label = document.createTextNode(isEditing ? ' Done' : ' Edit');
 
-    // Append to button
     editBtn.appendChild(icon);
     editBtn.appendChild(label);
-
   });
 
-  allLinks.forEach(linkCard => {
+  allLinks.forEach((linkCard, index) => {
     linkCard.addEventListener('click', (e) => {
       if (!isEditing) return;
 
       e.preventDefault();
-      currentCard = linkCard;
+      currentCard = { element: linkCard, index };
 
       const nameEl = linkCard.querySelector('.link-name');
       const iconEl = linkCard.querySelector('.link-icon i');
@@ -59,13 +68,23 @@ document.addEventListener('DOMContentLoaded', () => {
   saveBtn.addEventListener('click', () => {
     if (!currentCard) return;
 
+    const { element, index } = currentCard;
     const newName = nameInput.value.trim();
     const newURL = urlInput.value.trim();
     const newIcon = iconInput.value.trim();
 
-    if (newName) currentCard.querySelector('.link-name').textContent = newName;
-    if (newURL) currentCard.href = newURL;
-    if (newIcon) currentCard.querySelector('.link-icon i').className = newIcon;
+    if (newName) element.querySelector('.link-name').textContent = newName;
+    if (newURL) element.href = newURL;
+    if (newIcon) element.querySelector('.link-icon i').className = newIcon;
+
+    // 🔹 Save to Chrome storage
+    chrome.storage.local.get("linksData").then(result => {
+      const updatedLinks = result.linksData || {};
+      updatedLinks[index] = { name: newName, url: newURL, icon: newIcon };
+      return chrome.storage.local.set({ linksData: updatedLinks });
+    }).catch(error => {
+      console.error("Failed to save link data:", error);
+    });
 
     modal.style.display = 'none';
     currentCard = null;
