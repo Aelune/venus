@@ -22,7 +22,7 @@
   "persistent": false
   },
   "web_accessible_resources": [
-    "styles/styles.css",
+    "styles/*.css",
     "scripts/script.js",
     "scripts/editor.js",
     "images/*",

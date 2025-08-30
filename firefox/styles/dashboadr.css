@@ -1,0 +1,105 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: url('../images/Alien-World.png') no-repeat center center fixed;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.overlay {
+  width: 100%;
+  max-width: 900px;
+  padding: 2rem;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* CLOCK */
+.clock-container {
+  text-align: center;
+}
+.clock {
+  font-size: 3rem;
+  font-weight: bold;
+}
+.date {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+/* TABS */
+.tabs-container {
+  width: 100%;
+}
+
+.tabs-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.tab-btn {
+  background: #1e2a38;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.tab-btn.active {
+  background: #00aaff;
+}
+.tab-btn:hover {
+  background: #33475b;
+}
+
+/* LINKS */
+.links-container {
+  display: flex;
+  justify-content: center;
+}
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+
+.links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.link-card {
+  background: #1e2a38;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+  transition: transform 0.2s, background 0.3s;
+}
+.link-card i {
+  margin-right: 0.5rem;
+}
+.link-card:hover {
+  transform: translateY(-5px);
+  background: #00aaff;
+}

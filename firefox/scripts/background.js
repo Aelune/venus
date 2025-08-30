@@ -1,3 +1,4 @@
+// background.js
 // Open main.html when the extension starts
 browser.runtime.onStartup.addListener(async () => {
   await openOrFocusMainPage();

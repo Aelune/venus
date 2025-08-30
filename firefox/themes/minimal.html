@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Explorer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles/earth.css" />
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="cosmic-bg"></div>
+    <div class="stars" id="stars"></div>
+
+
+        <div class="shooting-star"></div>
+        <div class="shooting-star"></div>
+        <div class="shooting-star"></div>
+        <div class="shooting-star"></div>
+        <div class="shooting-star"></div>
+
+        <div class="main-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-rocket"></i>
+                <span>Cosmic Explorer</span>
+            </div>
+            <div class="controls">
+                <button class="control-btn" id="edit-toggle" title="Edit Mode">
+                    <i class="fas fa-edit"></i>
+                </button>
+                <button class="control-btn" id="help-button" title="Help">
+                    <i class="fas fa-question-circle"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Time Display -->
+        <section class="time-section">
+            <div id="clock">00:00:00</div>
+            <div id="date">Loading...</div>
+        </section>
+
+        <!-- Navigation -->
+        <nav class="navigation">
+            <div class="nav-tabs">
+                <button class="tab-btn active" data-tab="quick-links">
+                    <i class="fas fa-link"></i> Quick Links
+                </button>
+                <button class="tab-btn" data-tab="search">
+                    <i class="fas fa-search"></i> Search
+                </button>
+                <button class="tab-btn" data-tab="bookmarks">
+                    <i class="fas fa-bookmark"></i> Bookmarks
+                </button>
+                <button class="tab-btn" data-tab="settings">
+                    <i class="fas fa-cog"></i> Settings
+                </button>
+                <div class="tab-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Content Container -->
+        <main class="content-container">
+            <!-- Quick Links Tab -->
+            <section id="quick-links" class="tab-content active">
+                <div class="links-grid">
+                    <a href="https://github.com" class="link-card">
+                        <div class="link-icon"><i class="fab fa-github"></i></div>
+                        <div class="link-name">GitHub</div>
+                        <div class="link-description">Version control & collaboration</div>
+                    </a>
+                    <a href="https://youtube.com" class="link-card">
+                        <div class="link-icon"><i class="fab fa-youtube"></i></div>
+                        <div class="link-name">YouTube</div>
+                        <div class="link-description">Videos & entertainment</div>
+                    </a>
+                    <a href="https://gmail.com" class="link-card">
+                        <div class="link-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="link-name">Gmail</div>
+                        <div class="link-description">Email & communication</div>
+                    </a>
+                    <a href="https://drive.google.com" class="link-card">
+                        <div class="link-icon"><i class="fab fa-google-drive"></i></div>
+                        <div class="link-name">Google Drive</div>
+                        <div class="link-description">Cloud storage & files</div>
+                    </a>
+                    <a href="https://netflix.com" class="link-card">
+                        <div class="link-icon"><i class="fas fa-film"></i></div>
+                        <div class="link-name">Netflix</div>
+                        <div class="link-description">Movies & TV shows</div>
+                    </a>
+                    <a href="https://twitter.com" class="link-card">
+                        <div class="link-icon"><i class="fab fa-twitter"></i></div>
+                        <div class="link-name">Twitter</div>
+                        <div class="link-description">Social media & news</div>
+                    </a>
+                    <a href="https://reddit.com" class="link-card">
+                        <div class="link-icon"><i class="fab fa-reddit"></i></div>
+                        <div class="link-name">Reddit</div>
+                        <div class="link-description">Communities & discussions</div>
+                    </a>
+                    <a href="https://stackoverflow.com" class="link-card">
+                        <div class="link-icon"><i class="fab fa-stack-overflow"></i></div>
+                        <div class="link-name">Stack Overflow</div>
+                        <div class="link-description">Programming Q&A</div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Search Tab -->
+            <section id="search" class="tab-content">
+                <div class="search-container">
+                    <input type="text" class="search-box" placeholder="Search the cosmic web..."
+                           onkeypress="if(event.key==='Enter') window.open('https://www.google.com/search?q='+this.value, '_blank')">
+                </div>
+                <div class="links-grid">
+                    <a href="https://google.com" class="link-card">
+                        <div class="link-icon"><i class="fab fa-google"></i></div>
+                        <div class="link-name">Google</div>
+                        <div class="link-description">Web search engine</div>
+                    </a>
+                    <a href="https://duckduckgo.com" class="link-card">
+                        <div class="link-icon"><i class="fas fa-search"></i></div>
+                        <div class="link-name">DuckDuckGo</div>
+                        <div class="link-description">Private search</div>
+                    </a>
+                    <a href="https://bing.com" class="link-card">
+                        <div class="link-icon"><i class="fas fa-search"></i></div>
+                        <div class="link-name">Bing</div>
+                        <div class="link-description">Microsoft search</div>
+                    </a>
+                    <a href="https://wikipedia.org" class="link-card">
+                        <div class="link-icon"><i class="fab fa-wikipedia-w"></i></div>
+                        <div class="link-name">Wikipedia</div>
+                        <div class="link-description">Free encyclopedia</div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Bookmarks Tab -->
+            <section id="bookmarks" class="tab-content">
+                <div class="bookmarks-grid">
+                    <div class="bookmark-category">
+                        <h3 class="category-title">Development</h3>
+                        <a href="https://github.com" class="bookmark-item">
+                            <div class="bookmark-icon"><i class="fab fa-github"></i></div>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://codepen.io" class="bookmark-item">
+                            <div class="bookmark-icon"><i class="fab fa-codepen"></i></div>
+                            <span>CodePen</span>
+                        </a>
+                        <a href="https://stackoverflow.com" class="bookmark-item">
+                            <div class="bookmark-icon"><i class="fab fa-stack-overflow"></i></div>
+                            <span>Stack Overflow</span>
+                        </a>
+                    </div>
+                    <div class="bookmark-category">
+                        <h3 class="category-title">Design</h3>
+                        <a href="https://dribbble.com" class="bookmark-item">
+                            <div class="bookmark-icon"><i class="fab fa-dribbble"></i></div>
+                            <span>Dribbble</span>
+                        </a>
+                        <a href="https://behance.net" class="bookmark-item">
+                            <div class="bookmark-icon"><i class="fab fa-behance"></i></div>
+                            <span>Behance</span>
+                        </a>
+                        <a href="https://figma.com" class="bookmark-item">
+                            <div class="bookmark-icon"><i class="fas fa-pencil-ruler"></i></div>
+                            <span>Figma</span>
+                        </a>
+                    </div>
+                    <div class="bookmark-category">
+                        <h3 class="category-title">Social</h3>
+                        <a href="https://twitter.com" class="bookmark-item">
+                            <div class="bookmark-icon"><i class="fab fa-twitter"></i></div>
+                            <span>Twitter</span>
+                        </a>
+                        <a href="https://linkedin.com" class="bookmark-item">
+                            <div class="bookmark-icon"><i class="fab fa-linkedin"></i></div>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://reddit.com" class="bookmark-item">
+                            <div class="bookmark-icon"><i class="fab fa-reddit"></i></div>
+                            <span>Reddit</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Tab -->
+            <section id="settings" class="tab-content">
+                <div class="settings-grid">
+                    <div class="settings-card">
+                        <h3 class="settings-title">Appearance</h3>
+                        <div class="setting-item">
+                            <span>Dark Mode</span>
+                            <div class="toggle-switch active"></div>
+                        </div>
+                        <div class="setting-item">
+                            <span>Animations</span>
+                            <div class="toggle-switch active"></div>
+                        </div>
+                        <div class="setting-item">
+                            <span>Background Particles</span>
+                            <div class="toggle-switch active"></div>
+                        </div>
+                    </div>
+                    <div class="settings-card">
+                        <h3 class="settings-title">Functionality</h3>
+                        <div class="setting-item">
+                            <span>Show Clock</span>
+                            <div class="toggle-switch active"></div>
+                        </div>
+                        <div class="setting-item">
+                            <span>Show Date</span>
+                            <div class="toggle-switch active"></div>
+                        </div>
+                        <div class="setting-item">
+                            <span>Quick Links</span>
+                            <div class="toggle-switch active"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- <script>
+        // Initialize stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const starCount = 15;
+
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Initialize settings toggles
+        function initializeSettings() {
+            const toggles = document.querySelectorAll('.toggle-switch');
+            toggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    toggle.classList.toggle('active');
+                });
+            });
+        }
+
+        // Initialize everything when DOM loads
+        document.addEventListener('DOMContentLoaded', () => {
+            createStars();
+            initializeSettings();
+        });
+    </script> -->
+</body>
+</html>

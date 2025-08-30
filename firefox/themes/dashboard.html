@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom New Tab</title>
+  <link rel="stylesheet" href="../styles/dashboadr.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="overlay">
+    <main class="main-content">
+      <!-- CLOCK -->
+      <section class="clock-container">
+        <div class="clock" id="clock">00:00:00</div>
+        <div class="date" id="date">Monday, January 1</div>
+      </section>
+
+      <!-- TABS -->
+      <section class="tabs-container">
+        <div class="tabs-nav">
+          <button class="tab-btn active" data-tab="favorites">Favorites</button>
+          <button class="tab-btn" data-tab="productivity">Productivity</button>
+        </div>
+
+        <div class="links-container">
+          <!-- Favorites -->
+          <div class="tab-content active" id="favorites">
+            <div class="links">
+              <a href="https://google.com" class="link-card">
+                <i class="fab fa-google"></i> Google
+              </a>
+              <a href="https://reddit.com" class="link-card">
+                <i class="fab fa-reddit"></i> Reddit
+              </a>
+            </div>
+          </div>
+
+          <!-- Productivity -->
+          <div class="tab-content" id="productivity">
+            <div class="links">
+              <a href="https://notion.so" class="link-card">
+                <i class="fa-solid fa-book"></i> Notion
+              </a>
+              <a href="https://calendar.google.com" class="link-card">
+                <i class="fa-solid fa-calendar"></i> Calendar
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // CLOCK
+    function updateClock() {
+      const now = new Date();
+      document.getElementById('clock').textContent = now.toLocaleTimeString();
+      document.getElementById('date').textContent = now.toLocaleDateString('en-US', {
+        weekday: 'long',
+        month: 'long',
+        day: 'numeric'
+      });
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // TAB SWITCHING
+    document.querySelectorAll('.tab-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+
+        button.classList.add('active');
+        document.getElementById(button.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
