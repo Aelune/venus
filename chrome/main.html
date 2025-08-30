@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Home Page</title>
+<!-- <link rel="icon" type="image/png" href="images/favicon.png"> -->
+<link rel="icon" type="image/svg+xml" href="images/house.svg">
+
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/editor.js"></script>
+
+  <!-- Animated stars background -->
+  <div class="particles" id="particles"></div>
+
+  <div class="overlay">
+    <!-- Header -->
+    <header class="header">
+      <div class="greeting">Welcome back, <span>Explorer</span></div>
+      <!-- <button class="settings-toggle" id="settings-toggle" data-tooltip="Settings">
+        <i class="fas fa-cog"></i>
+      </button> -->
+      <div>
+          <button class="edit-toggle" id="edit-toggle"><i class="fas fa-edit"></i> Edit</button>
+          <button class="edit-toggle" id="help-button"><i class="fas fa-info-circle"></i> Help</button>
+        </div>
+
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+      <!-- Clock and Date -->
+      <section class="clock-container">
+        <div class="clock" id="clock">00:00:00</div>
+        <div class="date" id="date">Monday, January 1</div>
+      </section>
+
+      <!-- Tabs Navigation -->
+      <section class="tabs-container">
+        <div class="tabs-nav">
+          <button class="tab-btn active" data-tab="favorites">Favorites</button>
+          <button class="tab-btn" data-tab="productivity">Productivity</button>
+          <button class="tab-btn" data-tab="entertainment">Entertainment</button>
+          <button class="tab-btn" data-tab="development">Development</button>
+          <span class="tab-indicator"></span>
+        </div>
+
+        <div class="links-container">
+          <!-- Favorites -->
+          <div class="tab-content active" id="favorites">
+            <div class="links">
+              <a href="https://www.google.com" class="link-card">
+                <div class="link-icon"><i class="fab fa-google"></i></div>
+                <div class="link-name">Google</div>
+              </a>
+              <a href="https://www.reddit.com" class="link-card">
+                <div class="link-icon"><i class="fab fa-reddit-alien"></i></div>
+                <div class="link-name">Reddit</div>
+              </a>
+              <a href="https://www.github.com/dwukn" class="link-card">
+                <div class="link-icon"><i class="fab fa-github"></i></div>
+                <div class="link-name">GitHub</div>
+              </a>
+              <a href="https://www.youtube.com" class="link-card">
+                <div class="link-icon"><i class="fab fa-youtube"></i></div>
+                <div class="link-name">YouTube</div>
+              </a>
+              <a href="https://www.linkedin.com/in/dwukn/" class="link-card">
+                <div class="link-icon"><i class="fab fa-linkedin"></i></div>
+                <div class="link-name">LinkedIn</div>
+              </a>
+              <a href="https://mail.google.com" class="link-card">
+                <div class="link-icon"><i class="fas fa-envelope"></i></div>
+                <div class="link-name">Gmail</div>
+              </a>
+              <a href="https://calendar.google.com" class="link-card">
+                <div class="link-icon"><i class="far fa-calendar"></i></div>
+                <div class="link-name">Calendar</div>
+              </a>
+              <a href="https://www.amazon.com" class="link-card">
+                <div class="link-icon"><i class="fab fa-amazon"></i></div>
+                <div class="link-name">Amazon</div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Productivity -->
+          <div class="tab-content" id="productivity">
+            <div class="links">
+              <a href="https://mail.google.com" class="link-card">
+                <div class="link-icon"><i class="fas fa-envelope"></i></div>
+                <div class="link-name">Gmail</div>
+              </a>
+              <a href="https://calendar.google.com" class="link-card">
+                <div class="link-icon"><i class="far fa-calendar"></i></div>
+                <div class="link-name">Calendar</div>
+              </a>
+              <a href="https://keep.google.com" class="link-card">
+                <div class="link-icon"><i class="fas fa-sticky-note"></i></div>
+                <div class="link-name">Keep</div>
+              </a>
+              <a href="https://docs.google.com" class="link-card">
+                <div class="link-icon"><i class="fas fa-file-alt"></i></div>
+                <div class="link-name">Docs</div>
+              </a>
+              <a href="https://todoist.com" class="link-card">
+                <div class="link-icon"><i class="fas fa-check-circle"></i></div>
+                <div class="link-name">Todoist</div>
+              </a>
+              <!-- <a href="https://notion.so" class="link-card">
+                <div class="link-icon"><i class="fab fa-notion"></i></div>
+                <div class="link-name">Notion</div>
+              </a> -->
+            </div>
+          </div>
+
+          <!-- Entertainment -->
+          <div class="tab-content" id="entertainment">
+            <div class="links">
+              <!-- <a href="https://www.netflix.com" class="link-card">
+                <div class="link-icon"><i class="fab fa-netflix"></i></div>
+                <div class="link-name">Netflix</div>
+              </a> -->
+              <a href="https://www.spotify.com" class="link-card">
+                <div class="link-icon"><i class="fab fa-spotify"></i></div>
+                <div class="link-name">Spotify</div>
+              </a>
+              <a href="https://www.twitch.tv" class="link-card">
+                <div class="link-icon"><i class="fab fa-twitch"></i></div>
+                <div class="link-name">Twitch</div>
+              </a>
+              <a href="https://www.youtube.com" class="link-card">
+                <div class="link-icon"><i class="fab fa-youtube"></i></div>
+                <div class="link-name">YouTube</div>
+              </a>
+              <a href="https://www.crunchyroll.com" class="link-card">
+                <div class="link-icon"><i class="fas fa-film"></i></div>
+                <div class="link-name">Crunchyroll</div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Development -->
+          <div class="tab-content" id="development">
+            <div class="links">
+              <a href="https://github.com" class="link-card">
+                <div class="link-icon"><i class="fab fa-github"></i></div>
+                <div class="link-name">GitHub</div>
+              </a>
+              <a href="https://codepen.io" class="link-card">
+                <div class="link-icon"><i class="fab fa-codepen"></i></div>
+                <div class="link-name">CodePen</div>
+              </a>
+              <a href="https://stackoverflow.com" class="link-card">
+                <div class="link-icon"><i class="fab fa-stack-overflow"></i></div>
+                <div class="link-name">Stack Overflow</div>
+              </a>
+              <a href="https://developer.mozilla.org" class="link-card">
+                <div class="link-icon"><i class="fas fa-book"></i></div>
+                <div class="link-name">MDN</div>
+              </a>
+              <a href="https://glitch.com" class="link-card">
+                <div class="link-icon"><i class="fas fa-bolt"></i></div>
+                <div class="link-name">Glitch</div>
+              </a>
+              <a href="https://replit.com" class="link-card">
+                <div class="link-icon"><i class="fas fa-terminal"></i></div>
+                <div class="link-name">Replit</div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <!-- <footer class="footer">
+      <div class="quote">“Somewhere, something incredible is waiting to be known.”</div>
+      <div class="quote-author">– Carl Sagan</div>
+    </footer> -->
+  </div>
+
+
+  <!-- Edit Modal -->
+<div id="edit-modal" class="modal-overlay" style="display: none;">
+  <div class="modal">
+    <h3>Edit Link</h3>
+    <label>
+      Name:
+      <input type="text" id="edit-name" class="modal-input">
+    </label>
+    <label>
+      URL:
+      <input type="text" id="edit-url" class="modal-input">
+    </label>
+    <label>
+      Font Awesome Icon Class:
+      <input type="text" id="edit-icon" class="modal-input" placeholder="e.g., fab fa-github">
+    </label>
+    <div class="modal-actions">
+      <button id="modal-save" class="modal-button">Save</button>
+      <button id="modal-cancel" class="modal-button cancel">Cancel</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
